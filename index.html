@@ -1,13 +1,151 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kishore — Blackbox AI Resume (Fake)</title>
+  <style>
+    :root{
+      --bg:#0b0f13; --panel:#0f1418; --muted:#9aa7b1; --accent:#6ee7b7; --accent2:#7cc4ff;
+      --glass: rgba(255,255,255,0.03);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#050608 140%);color:#e6f0f2}
+    .container{max-width:900px;margin:32px auto;padding:28px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:14px;box-shadow:0 6px 30px rgba(2,6,12,0.7);border:1px solid rgba(255,255,255,0.03);display:grid;grid-template-columns:280px 1fr;gap:22px}
+    .sidebar{background:var(--panel);padding:22px;border-radius:12px;position:relative}
+    .profile-pic{width:96px;height:96px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#052;box-shadow:0 6px 18px rgba(110,231,183,0.06)}
+    h1{font-size:20px;margin:14px 0 4px}
+    h2{margin:18px 0 8px;font-size:14px;color:var(--accent)}
+    p.small{color:var(--muted);font-size:13px;margin:0}
+    .meta{margin-top:12px;font-size:13px;color:var(--muted)}
+    .section{margin-bottom:18px}
+    .tag{display:inline-block;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:12px;margin:6px 6px 0 0;color:var(--muted)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#031018;font-weight:600;text-decoration:none;font-size:13px}
+    .content{padding:18px;background:linear-gradient(180deg,transparent,rgba(255,255,255,0.01));border-radius:12px}
+    .role{display:flex;justify-content:space-between;align-items:flex-start}
+    .role .title{font-weight:700}
+    .muted{color:var(--muted);font-size:13px}
+    .list{margin:10px 0 0;padding:0;list-style:none}
+    .list li{margin:10px 0;padding:10px;border-left:3px solid rgba(255,255,255,0.03);}
+    .skills{display:flex;flex-wrap:wrap}
+    .footer-note{font-size:12px;color:var(--muted);margin-top:8px}
+    @media(max-width:720px){.container{grid-template-columns:1fr;padding:18px}.sidebar{order:2}.content{order:1}}
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <aside class="sidebar" aria-label="Sidebar">
+      <div style="display:flex;gap:12px;align-items:center">
+        <div class="profile-pic">K</div>
+        <div>
+          <h1>Kishore</h1>
+          <p class="small">Student — Aspiring ML Engineer & Creative Coder</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Contact</h2>
+        <p class="meta">Email: kishore.student@example.com</p>
+        <p class="meta">Phone: +91 98765 43210</p>
+        <p class="meta">Location: Bengaluru, India</p>
+      </div>
+
+      <div class="section">
+        <h2>Education</h2>
+        <p class="muted">B.Tech, Computer Science — Example Institute of Technology</p>
+        <p class="small">2022 — Present (expected 2026)</p>
+      </div>
+
+      <div class="section">
+        <h2>Skills</h2>
+        <div class="skills">
+          <span class="tag">Python</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">TensorFlow</span>
+          <span class="tag">Web (HTML/CSS/JS)</span>
+          <span class="tag">Git</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Languages</h2>
+        <p class="small">English (Fluent), Kannada (Native), Hindi (Conversational)</p>
+      </div>
+
+      <div class="section footer-note">
+        <p><strong>Note:</strong> This is a fictional/sample resume created for practice and demo (Blackbox AI theme).</p>
+      </div>
+    </aside>
+
+    <section class="content" aria-label="Main content">
+      <div class="section">
+        <h2>Summary</h2>
+        <p class="muted">Curious and motivated computer science student with hands-on experience building small ML projects and web tools. Strong foundation in algorithms, data structures, and applied machine learning. Seeking internship opportunities to contribute and learn.</p>
+      </div>
+
+      <div class="section">
+        <h2>Experience</h2>
+        <ul class="list">
+          <li>
+            <div class="role">
+              <div>
+                <div class="title">ML Research Intern — Blackbox AI (Student Lab)</div>
+                <div class="muted">May 2024 — Aug 2024</div>
+              </div>
+              <div class="muted">Remote</div>
+            </div>
+            <p class="small">Built and evaluated lightweight image-classification models; implemented data augmentation pipelines and trained models using PyTorch. Improved accuracy on a small dataset by ~6% through augmentation and hyperparameter tuning.</p>
+          </li>
+
+          <li>
+            <div class="role">
+              <div>
+                <div class="title">Frontend Developer — Campus Projects</div>
+                <div class="muted">Sep 2023 — Present</div>
+              </div>
+              <div class="muted">On-campus</div>
+            </div>
+            <p class="small">Designed and shipped small web apps for student clubs, including an events dashboard and an interactive syllabus viewer using vanilla JS and Bootstrap.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Selected Projects</h2>
+        <ul class="list">
+          <li>
+            <div class="title">Smart Attendance (Computer Vision)</div>
+            <p class="small">Face-detection based attendance prototype using OpenCV and a lightweight CNN. Built a simple UI to mark attendance and export CSVs. (GitHub demo available)</p>
+          </li>
+          <li>
+            <div class="title">NoteShare — Collaborative Notes App</div>
+            <p class="small">Full-stack web app for sharing and tagging lecture notes; implemented search and tagging features, basic auth, and a responsive design.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Achievements & Activities</h2>
+        <ul class="list">
+          <li><p class="small">Winner — College Hackathon (2023) — Built a prototype for energy-efficient IoT monitoring.</p></li>
+          <li><p class="small">Volunteer — Coding club mentor; tutor for first-year students.</p></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Interests</h2>
+        <p class="small">ML fairness & interpretability, embedded systems, creative coding, open-source contribution.</p>
+      </div>
+
+      <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+        <a class="btn" href="#" onclick="alert('This is a static demo — copy the page as HTML to use.')">Use this template</a>
+        <div class="muted">Tip: Replace placeholder contact & project links with your real ones before applying.</div>
+      </div>
+    </section>
+  </div>
+</body>
 </html>
+
