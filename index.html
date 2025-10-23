@@ -3,33 +3,125 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kishore</title>
+  <title>Kishore S - Aspiring Developer</title>
   <style>
+    /* VARIABLES & RESET - PROFESSIONAL BLUE THEME */
     :root{
-      --bg:#0b0f13; --panel:#0f1418; --muted:#9aa7b1; --accent:#6ee7b7; --accent2:#7cc4ff;
-      --glass: rgba(255,255,255,0.03);
+      --bg: #031728;        /* Deep Navy Background */
+      --panel: #071f3b;     /* Darker Navy Panel */
+      --muted: #a9bedc;     /* Soft Light Blue-Gray */
+      --accent: #38BDF8;    /* Sky Blue (Headings, Shimmer) */
+      --accent2: #60A5FA;   /* Royal Blue (Gradients, List Borders) */
+      --glass: rgba(255,255,255,0.04); 
+      --border: rgba(255,255,255,0.06);
+      --shimmer-color: var(--accent);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#050608 140%);color:#e6f0f2}
-    .container{max-width:900px;margin:32px auto;padding:28px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:14px;box-shadow:0 6px 30px rgba(2,6,12,0.7);border:1px solid rgba(255,255,255,0.03);display:grid;grid-template-columns:280px 1fr;gap:22px}
-    .sidebar{background:var(--panel);padding:22px;border-radius:12px;position:relative}
-    .profile-pic{width:96px;height:96px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#052;box-shadow:0 6px 18px rgba(110,231,183,0.06)}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#050608 140%);color:#e6f0f2;overflow-x:hidden}
+    
+    /* ANIMATION KEYFRAMES for the Shimmering Border */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* CONTAINER */
+    .container{
+      max-width:900px;margin:32px auto;padding:28px;
+      /* Subtle Aura & Glass Effect - Adjusted for Blue Accent */
+      background: radial-gradient(circle at top center, rgba(56,189,248,0.05), transparent 60%), var(--panel);
+      border-radius:14px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 0 1px var(--border);
+      display:grid;grid-template-columns:280px 1fr;gap:22px;
+      position:relative;
+    }
+
+    /* SHIMMER BORDER EFFECT */
+    .sidebar, .content {
+      border-radius: 12px;
+      padding: 22px;
+      position: relative;
+      z-index: 1; 
+    }
+
+    .sidebar::before, .content::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      padding: 1px; 
+      background: linear-gradient(
+        90deg, 
+        transparent 0%, 
+        var(--shimmer-color) 25%, 
+        transparent 50%, 
+        var(--shimmer-color) 75%, 
+        transparent 100%
+      );
+      background-size: 200% 100%;
+      background-repeat: no-repeat;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: exclude;
+      pointer-events: none;
+      animation: shimmer 15s linear infinite; 
+    }
+    .sidebar {background:var(--panel);}
+    .content {background:var(--bg);padding:18px;}
+
+
+    /* BASE STYLES */
+    .profile-pic{
+      width:96px;height:96px;border-radius:14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      display:flex;align-items:center;justify-content:center;font-weight:700;
+      color:#031728;
+      /* Profile Pic Shadow - Adjusted for Blue Accent */
+      box-shadow:0 6px 18px rgba(56,189,248,0.3)
+    }
     h1{font-size:20px;margin:14px 0 4px}
     h2{margin:18px 0 8px;font-size:14px;color:var(--accent)}
-    p.small{color:var(--muted);font-size:13px;margin:0}
+    p.small, .meta, .muted{color:var(--muted);font-size:13px;margin:0}
     .meta{margin-top:12px;font-size:13px;color:var(--muted)}
     .section{margin-bottom:18px}
-    .tag{display:inline-block;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:12px;margin:6px 6px 0 0;color:var(--muted)}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#031018;font-weight:600;text-decoration:none;font-size:13px}
-    .content{padding:18px;background:linear-gradient(180deg,transparent,rgba(255,255,255,0.01));border-radius:12px}
+    .tag{display:inline-block;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,0.02);font-size:12px;margin:6px 6px 0 0;color:var(--muted);border:1px solid rgba(255,255,255,0.08)}
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:10px;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      color:#031018;font-weight:600;text-decoration:none;font-size:13px;transition:transform 0.2s
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      /* Button Hover Shadow - Adjusted for Blue Accent */
+      box-shadow:0 4px 10px rgba(56,189,248,0.4);
+    }
     .role{display:flex;justify-content:space-between;align-items:flex-start}
     .role .title{font-weight:700}
-    .muted{color:var(--muted);font-size:13px}
     .list{margin:10px 0 0;padding:0;list-style:none}
-    .list li{margin:10px 0;padding:10px;border-left:3px solid rgba(255,255,255,0.03);}
+    .list li{margin:10px 0;padding:10px;border-left:3px solid var(--accent2);background:rgba(255,255,255,0.01);border-radius:4px;}
     .skills{display:flex;flex-wrap:wrap}
     .footer-note{font-size:12px;color:var(--muted);margin-top:8px}
+
+    /* TYPEWRITER SPECIFIC STYLES */
+    .typewriter-text {
+      display: inline-block;
+      overflow: hidden; 
+      white-space: nowrap; 
+      border-right: 3px solid var(--accent); 
+      padding-right: 5px;
+      font-size: 13px;
+    }
+    .typewriter-cursor {
+      border-right: 3px solid var(--accent);
+      animation: blink-cursor 0.75s step-end infinite;
+    }
+    @keyframes blink-cursor {
+      from, to { border-color: transparent }
+      50% { border-color: var(--accent) }
+    }
+
+    /* RESPONSIVE */
     @media(max-width:720px){.container{grid-template-columns:1fr;padding:18px}.sidebar{order:2}.content{order:1}}
   </style>
 </head>
@@ -39,22 +131,22 @@
       <div style="display:flex;gap:12px;align-items:center">
         <div class="profile-pic">K</div>
         <div>
-          <h1>Kishore</h1>
-          <p class="small">Student — Aspiring ML Engineer & Creative Coder</p>
+          <h1>Kishore S</h1>
+          <p class="small">2nd Year B.Sc. CS Student — Aspiring Developer</p>
         </div>
       </div>
 
       <div class="section">
         <h2>Contact</h2>
-        <p class="meta">Email: kishore.student@example.com</p>
-        <p class="meta">Phone: +91 98765 43210</p>
-        <p class="meta">Location: Bengaluru, India</p>
+        <p class="meta">Email: <a href="mailto:kishorekishorecb111@gmail.com" class="muted" style="text-decoration:none;color:var(--accent)">kishorekishorecb111@gmail.com</a></p>
+        <p class="meta">Phone: +91 81449 99399</p>
+        <p class="meta">Location: Erode, India</p>
       </div>
 
       <div class="section">
         <h2>Education</h2>
-        <p class="muted">B.Tech, Computer Science — Example Institute of Technology</p>
-        <p class="small">2022 — Present (expected 2026)</p>
+        <p class="muted">B.Sc., Computer Science — VET IAS College</p>
+        <p class="small">2023 — Present (expected 2026)</p>
       </div>
 
       <div class="section">
@@ -72,18 +164,18 @@
 
       <div class="section">
         <h2>Languages</h2>
-        <p class="small">English (Fluent), Kannada (Native), Hindi (Conversational)</p>
+        <p class="small">Tamil (Native), English (Fluent)</p>
       </div>
 
       <div class="section footer-note">
-        <p><strong>Note:</strong> This is a fictional/sample resume created for practice and demo (Blackbox AI theme).</p>
+        <p><strong>Note:</strong> This portfolio uses the Professional Blue theme and advanced CSS/JS effects for a unique presentation.</p>
       </div>
     </aside>
 
     <section class="content" aria-label="Main content">
       <div class="section">
         <h2>Summary</h2>
-        <p class="muted">Curious and motivated computer science student with hands-on experience building small ML projects and web tools. Strong foundation in algorithms, data structures, and applied machine learning. Seeking internship opportunities to contribute and learn.</p>
+        <p class="muted" id="summary-text"></p>
       </div>
 
       <div class="section">
@@ -141,11 +233,36 @@
       </div>
 
       <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
-        <a class="btn" href="#" onclick="alert('This is a static demo — copy the page as HTML to use.')">Use this template</a>
-        <div class="muted">Tip: Replace placeholder contact & project links with your real ones before applying.</div>
+        <a class="btn" href="https://github.com/kishorespk/naanMudhalvan.git" target="_blank">View GitHub Profile</a>
+        <div class="muted">Tip: Your GitHub profile is now linked! Make sure to replace project links with links to your repositories.</div>
       </div>
     </section>
   </div>
+
+  <script>
+    // JAVASCRIPT FOR THE TYPEWRITER EFFECT
+    const text = 'Curious and motivated computer science student with hands-on experience building small ML projects and web tools. Strong foundation in algorithms, data structures, and applied machine learning. Seeking internship opportunities to contribute and learn.';
+    const targetElement = document.getElementById('summary-text');
+    let i = 0;
+    
+    // Create the initial blinking cursor element
+    targetElement.innerHTML = '<span class="typewriter-cursor"></span>';
+
+    function typeWriter() {
+      if (i < text.length) {
+        // Replace the cursor with the next character and then put the cursor back
+        targetElement.innerHTML = text.substring(0, i + 1) + '<span class="typewriter-cursor"></span>';
+        i++;
+        // Set the typing speed (e.g., 20ms per character)
+        setTimeout(typeWriter, 20); 
+      } else {
+        // Once typing is done, remove the cursor to stop the animation
+        targetElement.innerHTML = text;
+      }
+    }
+
+    // Start the effect after a short delay
+    setTimeout(typeWriter, 500);
+  </script>
 </body>
 </html>
-
